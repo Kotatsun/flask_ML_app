@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            CDT
+        </title>
+    </head>
+    <body>
+        <h1>
+            Clock Drawing Test
+        </h1>
+    </body>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="image" accept="image/png, image/jpeg">
+  <button type="submit">submit</button>
+</form>
+
+{% if images %}
+  {% for path in images %}
+    <div>
+      <h5>prediction class: {{ prediction_classes[loop.index-1] }}</h5>
+      <img src="uploads/{{ path }}" style="margin-top: -20px; vertical-align: bottom; width: 200px;">
+      {{ path }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+{% endblock %}

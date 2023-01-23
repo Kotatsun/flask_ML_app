@@ -1,0 +1,1 @@
+docker build -t flask/torch --build-arg USER_NAME=$USER .
